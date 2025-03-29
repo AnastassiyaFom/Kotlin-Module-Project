@@ -1,6 +1,6 @@
 import java.util.Scanner
 
-fun main(args: Array<String>) {
+fun main() {
     MainMenu().start("главное меню")
 }
 
@@ -12,7 +12,7 @@ data class Note(var dirrectory: String, override var name: String, var text: Str
     constructor(_dirrectory: String, _name: String) : this(_dirrectory, _name, "") {
         do {
             println("Введите текст заметки, для окончания ввода введите c новой строки последовательность '***'")
-            var line = ""
+            var line:String
             do {
                 line = Scanner(System.`in`).nextLine()
                 if (line != "***") text += line + "\n"
@@ -20,6 +20,7 @@ data class Note(var dirrectory: String, override var name: String, var text: Str
             if (text == ""||text == "\n") println("Заметку без текста создать нельзя")
         } while (text == "" || text == "\n")
     }
+
 
     override fun toString(): String {
         return "Заметка: $name\nРасположена в архиве: $dirrectory\n\nТекст заметки:\n\n$text"
