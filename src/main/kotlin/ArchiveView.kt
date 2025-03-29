@@ -17,7 +17,7 @@ class ArchiveView(var archive: Archive) : Menu (
     /// эту функцию вынести как общий функционал c помощью лямбд
     override fun realiseUChoice(choice: Int) {
         when (choice) {
-            1 -> itemСreation(archive.notes)
+            1 -> itemCreation(archive.notes)
             in 2..points.size -> viewNote(archive.notes[choice - 2])
             0 -> return
             else -> println("Неизвестная команда")
@@ -26,7 +26,7 @@ class ArchiveView(var archive: Archive) : Menu (
 
 
     override fun <T> itemCreation(items: MutableList<T>): String where T : Item {
-        val name = super.itemСreation(archive.notes)
+        val name = super.itemCreation(archive.notes)
         if (name != "" && archive.notes.add(Note(archive.name, name))) {
             println("Заметка $name успешно создана")
             points.add(name)
