@@ -17,12 +17,12 @@ data class Note(var dirrectory: String, override var name: String, var text: Str
                 line = Scanner(System.`in`).nextLine()
                 if (line != "***") text += line + "\n"
             } while (line != "***")
-            if (text == "") println("Заметку без текста создать нельзя")
+            if (text == ""||text == "\n") println("Заметку без текста создать нельзя")
         } while (text == "" || text == "\n")
     }
 
     override fun toString(): String {
-        return "Заметка: $name\nРасположенена в архиве: $dirrectory\n\nТекст заметки:\n\n$text"
+        return "Заметка: $name\nРасположена в архиве: $dirrectory\n\nТекст заметки:\n\n$text"
     }
 }
 
